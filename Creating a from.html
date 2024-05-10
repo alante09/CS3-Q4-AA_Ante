@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <style>
+            body{
+                background-image:url('bg.avif');
+                background-repeat:no-repeat;
+                background-size:cover;
+                
+            }
+            #title{
+                font-weight:bold;
+                font-size:30px;
+                font-family:serif, georgia, "Times New Roman";
+                text-shadow:2px 2px white;
+                
+            }
+            #name{
+                border:white;
+                
+            }
+            #userN{
+               border:white;
+            }
+            #input{
+                border:white;
+            }
+            #password{
+                border:white;
+            }
+            #email{
+                border:white;
+            }
+            #address{
+                border:white;
+            }
+            #interest{
+                border:white;
+            }
+            fieldset{
+                border-radius:25px;
+                border-width:thick;
+            }
+           #submit{
+               border-radius:25px;
+               padding-left:25px;
+               padding-right:25px;
+               padding-top:15px;
+               padding-bottom:15px;
+               font-weight:bold;
+               font-size:15px;
+              
+           }
+            #reset{
+               border-radius:25px;
+               padding-left:25px;
+               padding-right:25px;
+               padding-top:15px;
+               padding-bottom:15px;
+               font-weight:bold;
+               font-size:15px;
+              }
+             #reset:hover{
+               border:white;
+               background-color:#eea29a;
+            }
+             #submit:hover{
+               border:white;
+               background-color:#eea29a;
+            }
+            
+            
+        </style>
+        
+        <form id="formDisplay" onsubmit="return display()">
+            <fieldset>
+            <legend id="title">SIGN UP FORM</legend>
+            
+            <label for="name">Name:</label>
+            <br> 
+            <input type="text" id="name" name="Name" autocomplete="off" onblur="f1(id)">
+            <br> <br>
+            
+            <label for="userN">Username:</label>
+            <br>
+            <input type="text" id="userN" name="Username" autocomplete="off" onblur="f1(id)">
+            <br> <br>
+
+            <label for="input" id="gender">Gender:</label>
+            <br>
+            <select id="input" name="Gender">    
+            <option value="" disabled selected>Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Prefer not to mention</option>
+            </select>
+            <br> <br>
+            
+            <label for="password">Password:</label>
+            <br>
+            <input type="password" id="password" name="Password" autocomplete="off" onblur="f1(id)">
+            <br> <br>
+            
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" id="email" name="Email" autocomplete="off" onblur="f1(id)">
+            <br> <br>
+            
+            <label for="address">Address:</label>
+            <br>
+            <input type="text" id="address" name="Address" autocomplete="off" onblur="f1(id)">
+            <br><br>
+
+            <label for="interests">Interests:</label>
+            <br>
+            <input type="text" id="interests" name="Interest" autocomplete="off" onblur="f1(id)">
+            <br><br>
+
+            <input type="submit" id="submit" value="SUBMIT">
+            <input type="reset" id="reset" value="RESET" onclick="dataR">
+            <br><br>
+                </fieldset>
+            
+</form>
+        <div id="present"></div> 
+        <script>
+            
+            function f1(id){
+                var y=document.getElementById(id).value;
+                if(y==''){
+                document.getElementById(id).style.border="3px solid red";
+                    }
+                else{
+                    document.getElementById(id).style.border="3px solid green";
+                    
+                }
+                }
+            function display(){
+              var form = document.getElementById("formDisplay");
+              var dForm = new FormData(form);
+              var uInput = "<h2>Displayed Information</h2>";
+              for (var info of dForm.entries()) {
+                    uInput += "<p><strong>" + info[0] + ":</strong> " + info[1] + "</p>";
+                }
+                document.getElementById("present").innerHTML = uInput;
+                return false;
+            }
+            function dataR(){
+                 document.getElementById("present").innerHTML = "";
+                document.getElementById("name").style.border = "none";
+                document.getElementById("username").style.border = "none";
+                document.getElementById("gender").style.border = "none";
+                document.getElementById("password").style.border = "none";
+                document.getElementById("email").style.border = "none";
+                document.getElementById("address").style.border = "none";
+                document.getElementById("interests").style.border = "none";
+            }
+        </script>
+        <p id="present" ></p>
+    
+    </body>
+</html>
